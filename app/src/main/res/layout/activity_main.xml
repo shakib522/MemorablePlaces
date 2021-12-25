@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="7dp"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/addButtonId"
+        android:textSize="17sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/add_some_places"
+        android:textAlignment="textStart"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        />
+    <ListView
+        android:divider="@android:color/transparent"
+        android:dividerHeight="7sp"
+        android:id="@+id/listViewId"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addButtonId"
+        />
+
+</RelativeLayout>

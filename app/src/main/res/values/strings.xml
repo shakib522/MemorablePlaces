@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Memorable Places</string>
+    <string name="add_some_places">Add new memorable place</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="user_guide">User Guide</string>
+    <string name="change_map_mode">change map mode</string>
+    <string name="welcome_to_user_guide">Welcome to User Guide</string>
+    <string name="user_guide_text">1.Click on Add new memorable place to add your current place that is favourite to you\n2.Long press on any where in map to save the location to favourite place\n3.Long click on your favourite place list for remove the item</string>
+    <string name="actionbar_spinner">ActionBar Spinner</string>
+
+    <string-array name="map_mode">
+
+        <item>Normal</item>
+        <item>Satellite</item>
+        <item>Hybrid</item>
+        <item>None</item>
+        <item>Terrain</item>
+    </string-array>
+</resources>
