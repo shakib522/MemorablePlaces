@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("long", mainArray.get(i).getLongitude());
                 intent.putExtra("address",mainArray.get(i).getAddress());
                 intent.putExtra("mapMode",mapMode);
+                intent.putExtra("click",3);
                 startActivityForResult(intent, 1);
             }
         });
@@ -191,6 +192,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("long", longitude);
             intent.putExtra("address","your location");
             intent.putExtra("mapMode",mapMode);
+            intent.putExtra("click",2);
             startActivityForResult(intent, 1);
         }else{
             Toast.makeText(getApplicationContext(), "Please wait", Toast.LENGTH_SHORT).show();

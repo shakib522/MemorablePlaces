@@ -13,6 +13,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.memorableplaces.databinding.ActivityMapsBinding;
@@ -29,6 +30,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     double latitude, longitude;
     String address;
     String mapMode="Normal";
+    int mark=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         longitude = intent.getDoubleExtra("long", 1);
         address=intent.getStringExtra("address");
         mapMode=intent.getStringExtra("mapMode");
+        mark=intent.getIntExtra("click",0);
 
     }
 
@@ -69,7 +72,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
         }
 
-        mMap.addMarker(new MarkerOptions().position(sydney).title(address));
+        if(mark==2){
+            mMap.addMarker(new MarkerOptions().position(sydney).title(address).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
+        }else if(mark==3){
+            mMap.addMarker(new MarkerOptions().position(sydney).title(address).icon(BitmapDescriptorFactory.fromResource(R.drawable.favourite)));
+        }
+
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 18));
 
         mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
@@ -104,7 +112,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     e.printStackTrace();
                 }
 
-                mMap.addMarker(new MarkerOptions().position(latLng).title(address));
+                mMap.addMarker(new MarkerOptions().position(latLng).title(address).icon(BitmapDescriptorFactory.fromResource(R.drawable.favourite)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
                 MapModel mapModel = new MapModel(latLng.latitude, latLng.longitude, address);
                 MainActivity.mainArray.add(mapModel);
