@@ -60,16 +60,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(latitude, longitude);
 
-        if(mapMode.equals("Normal")){
-            mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
-        }else if(mapMode.equals("Satellite")){
-            mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-        }else if(mapMode.equals("Hybrid")){
-            mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-        }else if(mapMode.equals("None")){
-            mMap.setMapType(GoogleMap.MAP_TYPE_NONE);
-        }else if(mapMode.equals("Terrain")){
-            mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+        switch (mapMode) {
+            case "Normal":
+            case "Terrain":
+                mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                break;
+            case "Satellite":
+                mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                break;
+            case "Hybrid":
+                mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                break;
+            case "None":
+                mMap.setMapType(GoogleMap.MAP_TYPE_NONE);
+                break;
         }
 
         if(mark==2){
