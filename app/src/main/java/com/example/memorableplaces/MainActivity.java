@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //comment on master branch
+        //write a another test comment
         if(!isInternetConnected()){
             showCustomDialog();
         }else if(!isLocationEnabled()){
